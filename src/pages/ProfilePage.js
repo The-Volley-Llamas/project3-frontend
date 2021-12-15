@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context";
 
-
 function ProfilePage(props) {
   const [userGamesList, setUserGamesList] = useState([]);
   const API_URI = process.env.REACT_APP_API_URI;
@@ -60,14 +59,19 @@ function ProfilePage(props) {
   console.log("user game venue", userGamesList);
   return (
     <div>
-      <h1>Welcome {user.name}!</h1>
-
-      <button onClick={handleOnClick}>My games</button>
-      <button onClick={(handleOnClick, logOutUser)}>Logout</button>
+      <button className="font-semibold underline text-xl" onClick={handleOnClick}>
+        My Games
+      </button>
+      <button
+        className="font-semibold underline text-xl"
+        onClick={(handleOnClick, logOutUser)}
+      >
+        Logout
+      </button>
       <>
         {userGamesList.map((event) => {
           return (
-            <div>
+            <div className="border border-black-900">
               <Link to={`sports/${event._id}`}>
                 <ul>
                   <p>{event.sport}</p>
@@ -86,7 +90,12 @@ function ProfilePage(props) {
                   <p>{event.price}€</p>
                 </ul>
               </Link>
-              <button onClick={() => deletedEvent(event._id)}>Leave</button>
+              <button
+                className="shadow-lg mt-2 mb-4 bg-gray-400 rounded-2xl"
+                onClick={() => deletedEvent(event._id)}
+              >
+                Leave
+              </button>
             </div>
           );
         })}
