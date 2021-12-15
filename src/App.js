@@ -14,6 +14,7 @@ import PrivateRoute from "./components/PrivateRoute";    // <== IMPORT
 import AnonRoute from "./components/AnonRoute";        // <== IMPORT
 import Venues from "./pages/Venues";
 import ProfilePage from "./pages/ProfilePage";
+import SplashPage from "./pages/SplashPage";
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
      {/*<Navbar />*/ }
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={SplashPage} />
+        <Route exact path="/home" component={HomePage} />
         <Route exact path="/search" component={SportsListPage} />
         <Route exact path="/venues" component={Venues} />
         <PrivateRoute exact path="/profile" component={ProfilePage} />
