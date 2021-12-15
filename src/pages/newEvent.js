@@ -107,9 +107,15 @@ export default function NewEvent() {
           onChange={handleInput}
           value={formState.venue}
         >
-          {venueList.map((venue) => {
-            return <option value={venue._id}>{venue.name}</option>;
-          })}
+          {venueList
+            .filter((venue) =>
+              venue.sport.some((sportName) =>
+                (sportName || "").includes(formState.sport)
+              )
+            )
+            .map((venue) => {
+              return <option value={venue._id}>{venue.name}</option>;
+            })}
         </select>
 
         <label>Date</label>
@@ -141,3 +147,9 @@ export default function NewEvent() {
     </div>
   );
 }
+
+
+/* {venueList.map((venue) => {
+            return <option value={venue._id}>{venue.name}</option>;
+          })}
+          */
