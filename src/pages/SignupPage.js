@@ -23,7 +23,6 @@ function SignupPage(props) {
     axios
       .post(`${API_URI}/api/upload`, fileFormData)
       .then((res) => {
-        console.log("iaugprghahvoaisare >>>>>>>", res);
         setUploadImage(file.name || "File name missing");
         setprofileImage(res.data.secure_url);
       })
@@ -31,14 +30,6 @@ function SignupPage(props) {
         console.log(error);
       });
   }
-
-  /*  function previewFile(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setPreviewSource(reader.result);
-    };
-  } */
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();

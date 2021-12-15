@@ -24,7 +24,6 @@ function ProfilePage(props) {
       setUserClicked("LOGOUT");
     }
   };
-  console.log("user", user)
 
   useEffect(() => {
     const localJWTToken = localStorage.getItem("authToken");
@@ -34,8 +33,6 @@ function ProfilePage(props) {
         headers: { Authorization: `Bearer ${localJWTToken}` },
       })
       .then((response) => {
-        console.log("response.data", response.data);
-
         setUserGamesList(response.data);
       })
       .catch(console.log);
@@ -53,12 +50,10 @@ function ProfilePage(props) {
         }
       )
       .then((response) => {
-        console.log("message", response.data);
         setRemoved(!removed);
       })
       .catch(console.log);
   }
-  console.log("user game venue", userGamesList);
   return (
     <div>
       <h1>Welcome {user.name}!</h1>

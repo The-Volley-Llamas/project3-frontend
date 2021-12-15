@@ -15,10 +15,8 @@ export default function Venues() {
     axios
       .get(`${API_URI}/api/venue`)
       .then((response) => {
-        console.log("response.data.venues", response.data);
         setVenueList(response.data);
          setIsLoading(false)
-        console.log("venues", venueList);
       })
       .catch(console.log);
   }, []);

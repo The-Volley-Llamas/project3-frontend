@@ -17,8 +17,6 @@ export default function MultipleMap(props) {
   });
   const [selectedVenue, setselectedVenue] = useState(null);
 
-  console.log("events", props.events[0].length)
-
 
   return (
     <>
@@ -31,7 +29,6 @@ export default function MultipleMap(props) {
         }}
       >
         {props.events[0].map((event) => {
-            console.log("consoled event", event)
             return (
 
           <Marker
@@ -47,8 +44,6 @@ export default function MultipleMap(props) {
               onClick={(e) => {
                 e.preventDefault();
                 setselectedVenue(event);
-
-                console.log("selected", selectedVenue);
               }}
             >
               <img src="../pin.png" alt="pin" width="30" height="25" />

@@ -36,7 +36,6 @@ export default function Map(props) {
             onClick={(e) => {
               e.preventDefault();
               setselectedVenue(props.venue);
-              console.log(selectedVenue);
             }}
           >
             <img src="../pin.png" alt="pin" width="30" height="25" />

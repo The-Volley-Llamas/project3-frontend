@@ -19,7 +19,6 @@ function SportDetailsPage(props) {
 
   const history = useHistory()
 
-  // const getProject = () => {
   //   // Get the token from the localStorage
   //   const storedToken = localStorage.getItem("authToken");
 
@@ -28,14 +27,11 @@ function SportDetailsPage(props) {
     axios
       .get(`${API_URI}/api/event/${sportId}`)
       .then((response) => {
-        console.log("response.data", response.data);
         setSport(response.data);
         setIsLoading(false);
       })
       .catch(console.log);
   }, [joined]);
-
-  console.log("user", user);
 
   function handleSubmit() {
     
@@ -51,7 +47,6 @@ function SportDetailsPage(props) {
         }
       )
       .then((response) => {
-        console.log("message", response.data);
         setMessage(response.data);
         setJoined(true);
       })
@@ -70,18 +65,11 @@ function SportDetailsPage(props) {
         }
       )
       .then((response) => {
-        console.log("message", response.data);
         setRemoved(true);
       })
       .catch(console.log);
   }
-  // useEffect(() => {
-  //   const filteredSport = events.filter((event) => event._id === sportId);
-  //   setSport(filteredSport[0]);
-  //   setIsLoading(false);
-  // }, []);
-  // console.log(sport);
-  console.log("sport", sport);
+
   return (
     <div className="SportDetails">
       {isLoading ? (
@@ -99,17 +87,6 @@ function SportDetailsPage(props) {
         <>
           <img src={sport.venue.image} alt="not found" />
 
-          {/* <Map 
-            venue={{
-              latitude: sport.venue.location.coordinates[0],
-              longitude: sport.venue.location.coordinates[1],
-              name: sport.venue.name,
-              address: sport.venue.location.type,
-              image: sport.venue.image,
-              id: sport._id,
-            }}
-
-          ></Map>*/}
           <h1>
             {sport.sport}, {sport.venue.location.type}
           </h1>
