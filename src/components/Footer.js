@@ -4,6 +4,7 @@ import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context"; 
 
 function Footer() {
+  const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
 
   return (
     <footer>
@@ -14,7 +15,9 @@ function Footer() {
             <div className="text-white">Home</div>
           </button>
         </Link>
-        <Link to="/new">
+        {isLoggedIn ? (
+<>
+          <Link to="/new">
           <button>
             <img className="mb-1 mt-1" src="/assets/+.png" alt="plus-sign" />
             <div className="text-white">Add</div>
@@ -30,6 +33,28 @@ function Footer() {
             <div className="text-white">Profile</div>
           </button>
         </Link>
+          </>
+        ): 
+        <>
+          <Link to="/signup">
+          <button>
+            <img className="mb-1 mt-1" src="/assets/+.png" alt="plus-sign" />
+            <div className="text-white">Signup</div>
+          </button>
+        </Link>
+        <Link to="/login">
+          <button>
+            <img
+              className="mb-1 ml-2"
+              src="/assets/coolicon.png"
+              alt="profile-icon"
+            />
+            <div className="text-white">Login</div>
+          </button>
+        </Link>
+          </>}
+        
+      
       </div>
     </footer>
   );
