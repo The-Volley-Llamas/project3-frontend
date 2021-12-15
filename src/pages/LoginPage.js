@@ -36,11 +36,22 @@ function LoginPage(props) {
 
   return (
     <div className="LoginPage">
-      <div className="">
-        <form className="flex flex-col items-center" onSubmit={handleLoginSubmit}>
-          <label className="items-start">Email:</label>
+      <div
+        className="flex flex-col
+          bg-white
+          px-4
+          sm:px-6
+          md:px-8
+          lg:px-10
+          py-40
+          w-50
+          max-w-md
+        "
+      >
+        <form onSubmit={handleLoginSubmit}>
+          <label>Email:</label>
           <input
-            className="bg-gray-300"
+            className="bg-gray-300 shadow-sm"
             type="text"
             name="email"
             value={email}
@@ -49,7 +60,7 @@ function LoginPage(props) {
 
           <label>Password:</label>
           <input
-            className="bg-gray-300"
+            className="bg-gray-300 shadow-sm"
             type="password"
             name="password"
             value={password}
@@ -63,12 +74,16 @@ function LoginPage(props) {
             Login
           </button>
         </form>
-     
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Haven't got an account?</p>
-      <Link to={"/signup"}> Sign Up</Link>
-    </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+<br/>
+        <p>Haven't got an account?</p>
+
+        <Link className="font-semibold underline" to={"/signup"}>
+          {" "}
+          Sign Up
+        </Link>
+      </div>
     </div>
   );
 }
