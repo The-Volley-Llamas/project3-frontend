@@ -119,9 +119,13 @@ function SportDetailsPage(props) {
           </p>
           <div>
             {sport.players.map((player) => (
+              <>
               <ul>
                 <li>{player.name}</li>
+              
               </ul>
+              <img src={player.profileImage} alt=""/>
+              </>
             ))}
           </div>
           <p>Time: {sport.time}</p>

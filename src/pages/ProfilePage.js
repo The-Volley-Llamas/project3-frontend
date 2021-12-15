@@ -24,6 +24,7 @@ function ProfilePage(props) {
       setUserClicked("LOGOUT");
     }
   };
+  console.log("user", user)
 
   useEffect(() => {
     const localJWTToken = localStorage.getItem("authToken");
@@ -61,6 +62,7 @@ function ProfilePage(props) {
   return (
     <div>
       <h1>Welcome {user.name}!</h1>
+      <img src={user.profileImage} alt="" width="20px" height="20px"/>
 
       <button onClick={handleOnClick}>My games</button>
       <button onClick={(handleOnClick, logOutUser)}>Logout</button>
@@ -76,7 +78,15 @@ function ProfilePage(props) {
                   </p>
                   <p>
                     {event.players.map((player) => {
-                      return <p>{player.name}</p>;
+
+                      return (
+                        <>
+                        <p>{player.name}</p>
+                        <img src={player.profileImage} alt="" width="30px" height="30px"/>
+</>
+                        );
+                      
+                      
                     })}
                   </p>
                   <p> {event.venue.name}</p>
