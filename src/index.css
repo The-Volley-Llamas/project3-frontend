@@ -111,4 +111,13 @@ footer {
   margin-top: 40%
 }
 
+.players{
+  width: 10%;
+  height: auto;
+  border-radius: 50%
+}
 
+.popup{
+  width: fit-content;
+
+}

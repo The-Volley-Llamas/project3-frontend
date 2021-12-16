@@ -51,53 +51,52 @@ function SignupPage(props) {
   return (
     <>
       <div className="SignupPage">
-        <form
-          classname="flex flex-col items-center"
-          onSubmit={handleSignupSubmit}
-        >
-          <label>Email:</label>
-          <input
-            className="bg-gray-300"
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
+        <div className="flex flex-col mt-20">
+          <form onSubmit={handleSignupSubmit}>
+            <label>Email:</label>
+            <input
+              className="bg-gray-300"
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
 
-          <label>Password:</label>
-          <input
-            className="bg-gray-300"
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
+            <label>Password:</label>
+            <input
+              className="bg-gray-300"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
 
-          <label>Name:</label>
-          <input
-            className="bg-gray-300"
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleName}
-          />
+            <label>Name:</label>
+            <input
+              className="bg-gray-300"
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleName}
+            />
 
-          <label>Picture</label>
-          <input
-            type="file"
-            name="image"
-            onChange={handleFileInputChange}
-            value={uploadImage.name}
-          />
-          <br />
-          <button
-            className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
-            type="submit"
-            value=""
-          >
-            Sign Up
-          </button>
-        </form>
+            <label>Picture</label>
+            <input
+              type="file"
+              name="image"
+              onChange={handleFileInputChange}
+              value={uploadImage.name}
+            />
+            <br />
+            <button
+              className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
+              type="submit"
+              value=""
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
         {profileImage && (
           <img src={profileImage} alt="chosen" style={{ height: "300px" }} />
         )}

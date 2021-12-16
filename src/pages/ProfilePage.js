@@ -81,7 +81,7 @@ function ProfilePage(props) {
                       return (
                         <>
                         <p>{player.name}</p>
-                        <img src={player.profileImage} alt="" width="30px" height="30px"/>
+                        <img src={player.profileImage} alt="" width="30px" height="30px" className="players"/>
 </>
                         );
                       
