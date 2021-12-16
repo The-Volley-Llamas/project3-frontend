@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.Homepage {
+  height: 50vh;
+}
+
+footer {
+  width: 100vw;
+}

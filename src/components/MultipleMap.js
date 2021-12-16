@@ -1,9 +1,9 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { Link } from "react-router-dom";
 
-//import "mapbox-gl/dist/mapbox-gl.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 const REACT_APP_MAPBOX_TOKEN = `pk.eyJ1IjoiY29saW5jaGFkd2ljayIsImEiOiJja3d6MjltODMwMmowMnJxbDE4Z3hzcGluIn0.iF3HrtD4LzaIc0yr41oU0A`;
 
@@ -17,8 +17,6 @@ export default function MultipleMap(props) {
   });
   const [selectedVenue, setselectedVenue] = useState(null);
 
-  console.log("events", props.events[0].length)
-
 
   return (
     <>
@@ -31,7 +29,6 @@ export default function MultipleMap(props) {
         }}
       >
         {props.events[0].map((event) => {
-            console.log("consoled event", event)
             return (
 
           <Marker
@@ -47,8 +44,6 @@ export default function MultipleMap(props) {
               onClick={(e) => {
                 e.preventDefault();
                 setselectedVenue(event);
-
-                console.log("selected", selectedVenue);
               }}
             >
               <img src="../pin.png" alt="pin" width="30" height="25" />

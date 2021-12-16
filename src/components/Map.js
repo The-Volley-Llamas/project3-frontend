@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
 //import "mapbox-gl/dist/mapbox-gl.css";
@@ -36,7 +36,6 @@ export default function Map(props) {
             onClick={(e) => {
               e.preventDefault();
               setselectedVenue(props.venue);
-              console.log(selectedVenue);
             }}
           >
             <img src="../pin.png" alt="pin" width="30" height="25" />

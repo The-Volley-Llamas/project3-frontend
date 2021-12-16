@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
-import queryString from "query-string";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context";
+
 
 
 function ProfilePage(props) {
@@ -13,9 +12,7 @@ function ProfilePage(props) {
   const API_URI = process.env.REACT_APP_API_URI;
   const { user, logOutUser } = useContext(AuthContext);
   const [removed, setRemoved] = useState(true);
-  const { search } = useLocation();
   const [userClicked, setUserClicked] = useState("MYGAMES");
-  const { sport } = queryString.parse(search);
 
   const handleOnClick = () => {
     if (userClicked === "LOGOUT") {
@@ -33,8 +30,6 @@ function ProfilePage(props) {
         headers: { Authorization: `Bearer ${localJWTToken}` },
       })
       .then((response) => {
-        console.log("response.data", response.data);
-
         setUserGamesList(response.data);
       })
       .catch(console.log);
@@ -52,15 +47,14 @@ function ProfilePage(props) {
         }
       )
       .then((response) => {
-        console.log("message", response.data);
         setRemoved(!removed);
       })
       .catch(console.log);
   }
-  console.log("user game venue", userGamesList);
   return (
     <div>
       <h1>Welcome {user.name}!</h1>
+      <img src={user.profileImage} alt="" width="20px" height="20px"/>
 
       <button onClick={handleOnClick}>My games</button>
       <button onClick={(handleOnClick, logOutUser)}>Logout</button>
@@ -76,7 +70,15 @@ function ProfilePage(props) {
                   </p>
                   <p>
                     {event.players.map((player) => {
-                      return <p>{player.name}</p>;
+
+                      return (
+                        <>
+                        <p>{player.name}</p>
+                        <img src={player.profileImage} alt="" width="30px" height="30px"/>
+</>
+                        );
+                      
+                      
                     })}
                   </p>
                   <p> {event.venue.name}</p>

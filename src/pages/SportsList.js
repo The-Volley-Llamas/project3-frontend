@@ -15,18 +15,8 @@ function SportsListPage() {
   const { search } = useLocation();
   const { sport } = queryString.parse(search);
 
-/*const handleOnClick = (name) => {
-  
-  console.log(name)
-  if(name ==="events"){
-    setUserClicked("events")
-  }else if(name === "map"){
-    setUserClicked("map")
-  }
-}*/
 
 const handleOnClick = (name) => {
-  console.log(name)
   if(name ==="events"){
     setUserClicked("events")
   }else if(name === "map"){
@@ -39,7 +29,6 @@ const handleOnClick = (name) => {
     axios
       .get(`${API_URI}/api/event`)
       .then((response) => {
-        console.log("response.data", response.data);
         const filteredSport = response.data.filter(
           (event) => event.sport === sport
         );
@@ -49,39 +38,15 @@ const handleOnClick = (name) => {
       .catch(console.log);
   }, [sport]);
 
-  // useEffect(() => {
-  //const filteredSport = sportList.filter(event=> event.sport === sport)
-  //   setSportList(filteredSport)
-  // }, [sport])
-
-  // const getAllSports = () => {
-  //   // Get the token from the localStorage
-  //   const storedToken = localStorage.getItem("authToken");
-
-  //   // Send the token through the request "Authorization" Headers
-  //   axios
-  //     .get(`${API_URI}/api/sports`, {
-  //       headers: { Authorization: `Bearer ${storedToken}` },
-  //     })
-  //     .then((response) => setSportList(response.data))
-  //     .catch((error) => console.log(error));
-  // };
-
-  // // We set this effect will run only once, after the initial render
-  // // by setting the empty dependency array - []
-  // useEffect(() => {
-  //   getAllSports();
-  // }, []);
-
   return (
-    <div className="SportsListPage">
+    <div>
     <button name="events" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e) =>handleOnClick(e.target.name)}>Events</button>
     <button name="map" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e)=> handleOnClick(e.target.name)}>Map</button>
     
 
       {isLoading ? (
         <>
-          <img className="loading" src={loader} alt="loading..." width="130" height="130" />
+          <img className="loading" src={loader} alt="loading..."  />
           <p>Loading...</p>
         </>
       ) : (
