@@ -70,7 +70,7 @@ function ProfilePage(props) {
   <span className="font-semibold textl-2xl">{user.name}</span>
 </div>
       <>
-      <h2>My Games</h2>
+      <h2>My Events</h2>
         {userGamesList.map((event) => {
           return (
             <div className="border-top border-black-900">
