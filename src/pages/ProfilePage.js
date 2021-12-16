@@ -52,39 +52,37 @@ function ProfilePage(props) {
   return (
     <div>
       <button
-        className="font-semibold underline text-xl"
+        className="font-semibold underline text-2xl"
         onClick={handleOnClick}
       >
         My Games
       </button>
-      <button
-        className="font-semibold underline text-xl"
-        onClick={(handleOnClick, logOutUser)}
-      >
-        Logout
-      </button>
+
       <>
         {userGamesList.map((event) => {
           return (
             <div className="border border-black-900">
               <Link to={`sports/${event._id}`}>
                 <ul>
-                  <p>{event.sport}</p>
-                  <p>
+                  <p className="text-xl font-semibold border-2 p-2">
+                    {event.sport}
+                  </p>
+                  <br />
+
+                  <p className="font-semibold">
                     Attendees: {event.players.length}/{event.numberOfPlayers}
                   </p>
                   <p>
                     {event.players.map((player) => {
                       return (
                         <>
-                          <div className="flex flex-nowrap flex-col">
-                            <div className="flex-col">
+                          <div className="flex flex-row justify-center">
+                            <div className="flex-row">
                               <p>{player.name}</p>
                               <img
+                                className="rounded-full w-10 h-10"
                                 src={player.profileImage}
                                 alt=""
-                                width="40px"
-                                height="40px"
                               />
                             </div>
                           </div>
@@ -108,6 +106,12 @@ function ProfilePage(props) {
             </div>
           );
         })}
+        <button
+          className="font-semibold text-2xl shadow-lg mb-2 bg-gray-400 rounded-2xl mt-10"
+          onClick={(handleOnClick, logOutUser)}
+        >
+          Logout
+        </button>
       </>
     </div>
   );
