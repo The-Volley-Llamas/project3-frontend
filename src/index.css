@@ -126,3 +126,14 @@ footer {
   width: 30%;
  height: auto;
 }
+
+.profile_info{
+  display: flex;
+}
+
+.profile_picture{
+height: 100px;
+border-radius: 50px;
+margin-left: 20px;
+
+}

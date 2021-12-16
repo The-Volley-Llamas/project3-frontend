@@ -52,12 +52,12 @@ function ProfilePage(props) {
   return (
     <div>
       <div className="ProfileButtons">
-        <button
+        {/* <button
           className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
           onClick={handleOnClick}
         >
           My Games
-        </button>
+        </button> */}
         <button
           className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
           onClick={(handleOnClick, logOutUser)}
@@ -65,8 +65,12 @@ function ProfilePage(props) {
           Log out
         </button>
       </div>
-
+<div className="profile_info">
+  <img src={user.profileImage} alt="" className="profile_picture"/>
+  <span className="font-semibold textl-2xl">{user.name}</span>
+</div>
       <>
+      <h2>My Games</h2>
         {userGamesList.map((event) => {
           return (
             <div className="border-top border-black-900">
