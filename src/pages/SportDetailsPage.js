@@ -96,12 +96,13 @@ function SportDetailsPage(props) {
         </>
       ) : (
         <>
-          <img src={sport.venue.image} alt="" />
+          <img src={sport.venue.image} alt="event-img" />
 
-          <h1>
-            {sport.sport}, {sport.venue.location.type}
-          </h1>
-          <p> </p>
+          <h1 className="font-semibold text-2xl">{sport.sport}</h1>
+          {sport.venue.location.type}
+
+          <br />
+          <br />
           <p>
             Attendees {sport.players.length}/{sport.numberOfPlayers}
           </p>
@@ -111,22 +112,25 @@ function SportDetailsPage(props) {
                 <ul>
                   <li>
                     {" "}
+                     <span>{player.name}</span>
                     <span>
                       {" "}
                       <img
+                        className="w-10 rounded-full"
                         src={player.profileImage}
-                        alt=""
-                        className="players"
+                        alt="manimg"
                       />
                     </span>
-                    <span>{player.name}</span>
+                   
                   </li>
                 </ul>
               </>
             ))}
           </div>
+          <br />
           <p>Time: {sport.time}</p>
           <p> {sport.price}€</p>
+          <br />
 
           {!joined ? (
             <button
@@ -137,13 +141,13 @@ function SportDetailsPage(props) {
             </button>
           ) : (
             <>
-            <Confirmation message={[message]}></Confirmation>
-            <button
-              className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
-              onClick={handleLeave}
-            >
-              Leave
-            </button>
+              <Confirmation message={[message]}></Confirmation>
+              <button
+                className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
+                onClick={handleLeave}
+              >
+                Leave
+              </button>
             </>
           )}
         </>
