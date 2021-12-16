@@ -15,15 +15,13 @@ function SportsListPage() {
   const { search } = useLocation();
   const { sport } = queryString.parse(search);
 
-
-const handleOnClick = (name) => {
-  if(name ==="events"){
-    setUserClicked("events")
-  }else if(name === "map"){
-    setUserClicked("map")
-  }
-}
-
+  const handleOnClick = (name) => {
+    if (name === "events") {
+      setUserClicked("events");
+    } else if (name === "map") {
+      setUserClicked("map");
+    }
+  };
 
   useEffect(() => {
     axios
@@ -40,21 +38,30 @@ const handleOnClick = (name) => {
 
   return (
     <div>
-    <button name="events" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e) =>handleOnClick(e.target.name)}>Events</button>
-    <button name="map" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e)=> handleOnClick(e.target.name)}>Map</button>
-    
+      <button
+        name="events"
+        className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+        onClick={(e) => handleOnClick(e.target.name)}
+      >
+        Events
+      </button>
+      <button
+        name="map"
+        className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+        onClick={(e) => handleOnClick(e.target.name)}
+      >
+        Map
+      </button>
 
       {isLoading ? (
         <>
-          <img className="loading" src={loader} alt="loading..."  />
+          <img className="loading" src={loader} alt="loading..." />
           <p>Loading...</p>
         </>
       ) : (
         <>
           {userClicked === "events" ? (
             <>
-           
-
               {sportList.map((sport) => {
                 return (
                   <>
@@ -77,6 +84,14 @@ const handleOnClick = (name) => {
                         {sport.numberOfPlayers}
                       </p>
                       <br />
+
+                      <div>
+                        <Link to={`sports/${sport._id}`}>
+                          <button className="shadow-lg  bg-gray-400 rounded-2xl">
+                            Details
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </>
                 );

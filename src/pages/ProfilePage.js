@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context";
 
-
-
 function ProfilePage(props) {
   const [userGamesList, setUserGamesList] = useState([]);
   const API_URI = process.env.REACT_APP_API_URI;
@@ -77,15 +75,21 @@ function ProfilePage(props) {
                   </p>
                   <p>
                     {event.players.map((player) => {
-
                       return (
                         <>
-                        <p>{player.name}</p>
-                        <img src={player.profileImage} alt="" width="30px" height="30px"/>
-</>
-                        );
-                      
-                      
+                          <div className="flex flex-nowrap flex-col">
+                            <div className="flex-col">
+                              <p>{player.name}</p>
+                              <img
+                                src={player.profileImage}
+                                alt=""
+                                width="40px"
+                                height="40px"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      );
                     })}
                   </p>
                   <p> {event.venue.name}</p>
