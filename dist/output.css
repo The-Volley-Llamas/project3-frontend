@@ -498,7 +498,6 @@ nav li {
   margin-left: 5px;
 }
 
-.EditProjectPage,
 .SignupPage,
 .LoginPage, 
 .CreateEvent
@@ -515,7 +514,6 @@ nav li {
 }
 
 
-.EditProjectPage form,
 .SignupPage form,
 .LoginPage form, 
 .CreateEvent form{
@@ -524,14 +522,8 @@ nav li {
   align-items: center;
 }
 
-.AddTask button,
-.AddProject button,
 .CreateEvent button {
   display: block;
-}
-
-.TaskCard {
-  background-color: #dfeef9;
 }
 
 .marker-btn img {

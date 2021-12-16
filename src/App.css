@@ -43,9 +43,8 @@
 
 .CreateEvent{
   height: 50vh;
-
-}
-.addForm{
 }
 
-
+.ProfileButtons{
+ text-decoration: dotted;
+}

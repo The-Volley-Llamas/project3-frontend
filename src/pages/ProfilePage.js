@@ -51,19 +51,27 @@ function ProfilePage(props) {
   }
   return (
     <div>
+    <div className="ProfileButtons">
       <button
         className="font-semibold underline text-2xl"
         onClick={handleOnClick}
       >
         My Games
       </button>
+      <button
+        className="font-semibold underline text-2xl"
+        onClick={(handleOnClick, logOutUser)}
+      >
+        Log out
+      </button>
+      </div>
 
       <>
         {userGamesList.map((event) => {
           return (
             <div className="border border-black-900">
               <Link to={`sports/${event._id}`}>
-                  <h2>{event.sport}</h2>
+            
                 <ul>
                   <p className="text-xl font-semibold border-2 p-2">
                     {event.sport}
@@ -99,7 +107,7 @@ function ProfilePage(props) {
                 </ul>
               </Link>
               <button
-                className="shadow-lg mt-2 mb-4 bg-gray-400 rounded-2xl"
+                className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
                 onClick={() => deletedEvent(event._id)}
               >
                 Leave
@@ -107,12 +115,6 @@ function ProfilePage(props) {
             </div>
           );
         })}
-        <button
-          className="font-semibold text-2xl shadow-lg mb-2 bg-gray-400 rounded-2xl mt-10"
-          onClick={(handleOnClick, logOutUser)}
-        >
-          Logout
-        </button>
       </>
     </div>
   );
