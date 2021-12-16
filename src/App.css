@@ -41,10 +41,14 @@
   height: 50vh;
 }
 
-.CreateEvent{
+.CreateEvent {
   height: 50vh;
 }
 
-.ProfileButtons{
- text-decoration: dotted;
+.Splashpage {
+  height: 50vh;
+}
+
+.ProfileButtons {
+  text-decoration: dotted;
 }

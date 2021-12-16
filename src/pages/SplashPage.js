@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function SplashPage() {
   return (
-    
+    <div className="Splashpage">
     <div class="h-max bg-gradient-to-r from-lime-600 ... ">
       <img
         className="mt-20 w-50"
@@ -17,6 +17,7 @@ export default function SplashPage() {
       >
         Start...
       </Link>
+      </div>
     </div>
   );
 }
