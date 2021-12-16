@@ -51,8 +51,11 @@ function SignupPage(props) {
   return (
     <>
       <div className="SignupPage">
-        <div className="flex flex-col mt-20">
-          <form onSubmit={handleSignupSubmit}>
+        <div className="">
+          <form
+            className="flex flex-col items-center pt-20 pb-5"
+            onSubmit={handleSignupSubmit}
+          >
             <label>Email:</label>
             <input
               className="bg-gray-300"

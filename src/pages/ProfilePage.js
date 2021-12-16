@@ -81,11 +81,11 @@ function ProfilePage(props) {
                     Attendees: {event.players.length}/{event.numberOfPlayers}
                   </p>
                   <p>
-                    {event.players.map((player) => {
-                      return (
-                        <>
-                          <div className="flex flex-row justify-center">
-                            <div className="flex-row">
+                    <div className="flex flex-wrap justify-around w-10/12 mx-auto">
+                      {event.players.map((player) => {
+                        return (
+                          <>
+                            <div className="flex flex-col items-center w-24 my-2">
                               <p className="justify-center">{player.name}</p>
                               <img
                                 className="rounded-full w-10 h-10"
@@ -93,10 +93,10 @@ function ProfilePage(props) {
                                 alt="profile-img"
                               />
                             </div>
-                          </div>
-                        </>
-                      );
-                    })}
+                          </>
+                        );
+                      })}
+                    </div>
                   </p>
                   <p> {event.venue.name}</p>
 
