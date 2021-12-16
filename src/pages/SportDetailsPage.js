@@ -121,7 +121,9 @@ function SportDetailsPage(props) {
       ) : (
         <>
           {userClicked === "events" ? (
-            <img src={sport.venue.image} alt="" />
+            <div className="md:flex md:justify-center">
+              <img className="md:w-50 md:h-40" src={sport.venue.image} alt="" />
+            </div>
           ) : (
             <Map
               venue={{
@@ -141,36 +143,36 @@ function SportDetailsPage(props) {
           <br />
           <br />
           <div className="border-solid border-2 pt-1">
-          <p>
-            Attendees {sport.players.length}/{sport.numberOfPlayers}
-          </p>
-          <div className="flex flex-wrap justify-around w-10/12 mx-auto">
-            {sport.players.map((player) => (
-              <>
-                <div className="flex flex-col items-center w-24 my-2">
-                  <ul>
-                    <li className="items-center">
-                      {" "}
-                      <span>{player.name}</span>
-                      <span>
+            <p>
+              Attendees {sport.players.length}/{sport.numberOfPlayers}
+            </p>
+            <div className="flex flex-wrap justify-around w-10/12 mx-auto">
+              {sport.players.map((player) => (
+                <>
+                  <div className="flex flex-col items-center w-24 my-2">
+                    <ul>
+                      <li className="items-center">
                         {" "}
-                        <img
-                          className="w-10 rounded-full"
-                          src={player.profileImage}
-                          alt="manimg"
-                        />
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </>
-            ))}
+                        <span>{player.name}</span>
+                        <span>
+                          {" "}
+                          <img
+                            className="w-10 rounded-full"
+                            src={player.profileImage}
+                            alt="manimg"
+                          />
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              ))}
+            </div>
+            <br />
+            <p>Time: {sport.time}</p>
+            <p> {sport.price}€</p>
+            <br />
           </div>
-          <br />
-          <p>Time: {sport.time}</p>
-          <p> {sport.price}€</p>
-          <br />
-</div>
           {!joined ? (
             <button
               className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
