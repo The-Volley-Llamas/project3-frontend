@@ -71,10 +71,7 @@ function ProfilePage(props) {
           return (
             <div className="border border-black-900">
               <Link to={`sports/${event._id}`}>
-<<<<<<< HEAD
-=======
             
->>>>>>> profile
                 <ul>
                   <p className="text-xl font-semibold border-2 p-2">
                     {event.sport}
