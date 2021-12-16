@@ -26,7 +26,7 @@ function LoginPage(props) {
 
         const JWTToken = response.data.authToken;
         logInUser(JWTToken);
-        props.history.push("/");
+        props.history.push("/home");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

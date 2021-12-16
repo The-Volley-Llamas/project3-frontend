@@ -4,12 +4,12 @@ import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context"; 
 
 function Footer() {
-  const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
+  const {isLoggedIn} = useContext(AuthContext)
 
   return (
     <footer>
       <div className="flex justify-between">
-        <Link to="/">
+        <Link to="/home">
           <button>
             <img className="ml-1" src="/assets/running.png" alt="running-man" />
             <div className="text-white">Home</div>

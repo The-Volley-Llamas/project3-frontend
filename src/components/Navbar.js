@@ -11,7 +11,7 @@ function Navbar() {
     
     <nav>
    
-      <Link to="/">
+      <Link to="/home">
         <button>
          
         </button>

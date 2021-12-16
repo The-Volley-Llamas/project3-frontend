@@ -22,16 +22,14 @@ export default function NewEvent() {
   const history = useHistory();
 
   const { user } = useContext(AuthContext);
-  console.log("user", user);
+
 
   useEffect(() => {
     axios
       .get(`${API_URI}/api/venue`)
       .then((response) => {
-        console.log("response.data.venues", response.data);
         setVenueList(response.data);
         setIsLoading(false);
-        console.log("venues", venueList);
       })
       .catch(console.log);
   }, []);
@@ -50,8 +48,7 @@ export default function NewEvent() {
         }
       )
       .then((respnse) => {
-        // setFormState({});
-        history.push("/");
+        history.push("/home");
       })
       .catch(console.log);
   }
@@ -60,18 +57,12 @@ export default function NewEvent() {
     setFormState({ ...formState, [e.target.name]: e.target.value }); // setFormState(Object.assign{}, state, {[e.name]: e.value}))
   }
 
-  console.log("formState", formState);
   return (
     <div className="NewEventPage">
       <h3>Add an event</h3>
 
       <form onSubmit={handleSubmit}>
-        {/* <input
-            type="text"
-            name="sport"
-            onChange={handleInput}         //onChange={(e) => setHeadline(e.target.value)}
-            value={formState.headline}
-          /> */}
+      
         <select
           name="sport"
           id="sport"
@@ -147,9 +138,3 @@ export default function NewEvent() {
     </div>
   );
 }
-
-
-/* {venueList.map((venue) => {
-            return <option value={venue._id}>{venue.name}</option>;
-          })}
-          */
