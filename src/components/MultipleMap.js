@@ -66,7 +66,7 @@ export default function MultipleMap(props) {
               <p>{selectedVenue.venue.location.type}</p>
               <p>{selectedVenue.date}</p>
               <p>{selectedVenue.time}</p>
-<Link to={`sports/${selectedVenue._id}`}  className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg">more info</Link>
+<Link to={`sports/${selectedVenue._id}`}  className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg">More info</Link>
 
             </div>
             </div>
