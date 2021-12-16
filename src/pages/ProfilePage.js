@@ -51,19 +51,19 @@ function ProfilePage(props) {
   }
   return (
     <div>
-    <div className="ProfileButtons">
-      <button
-        className="font-semibold underline text-2xl"
-        onClick={handleOnClick}
-      >
-        My Games
-      </button>
-      <button
-        className="font-semibold underline text-2xl"
-        onClick={(handleOnClick, logOutUser)}
-      >
-        Log out
-      </button>
+      <div className="ProfileButtons">
+        <button
+          className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+          onClick={handleOnClick}
+        >
+          My Games
+        </button>
+        <button
+          className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+          onClick={(handleOnClick, logOutUser)}
+        >
+          Log out
+        </button>
       </div>
 
       <>
@@ -71,7 +71,6 @@ function ProfilePage(props) {
           return (
             <div className="border-top border-black-900">
               <Link to={`sports/${event._id}`}>
-            
                 <ul>
                   <p className="text-xl font-semibold border-2 p-2">
                     {event.sport}
