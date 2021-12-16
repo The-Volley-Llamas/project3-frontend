@@ -43,6 +43,7 @@ export default function Map(props) {
         </Marker>
         {selectedVenue ? (
           <Popup
+            className="single_popup"
             latitude={props.venue.latitude}
             longitude={props.venue.longitude}
             onClose={() => {
@@ -50,7 +51,7 @@ export default function Map(props) {
             }}
           >
             <div>
-              <img className="popup-img" src={props.venue.image} alt="venue" />
+              <img className="popup-img" src={props.venue.image} alt="" />
               <h2>{props.venue.name}</h2>
               <p>{props.venue.address}</p>
             </div>

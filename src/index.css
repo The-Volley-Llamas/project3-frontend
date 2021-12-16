@@ -118,7 +118,11 @@ footer {
 }
 
 .popup {
- width: 10%;
+ width: 60%;
  height: auto;
 
+}
+.single_popup{
+  width: 30%;
+ height: auto;
 }

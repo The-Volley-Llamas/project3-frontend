@@ -5,6 +5,8 @@ import loader from "../running-man.gif";
 import { AuthContext } from "./../context/auth.context";
 import Confirmation from "../components/Confirmation";
 import { useHistory } from "react-router";
+import Map from "../components/Map"
+
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -15,9 +17,17 @@ function SportDetailsPage(props) {
   const { user, isLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
   const [joined, setJoined] = useState(false);
+  const [userClicked, setUserClicked] =useState("events")
   //const [removed, setRemoved] = useState(false);
-
   const history = useHistory();
+
+  const handleOnClick = (name) => {
+    if (name === "events") {
+      setUserClicked("events");
+    } else if (name === "map") {
+      setUserClicked("map");
+    }
+  };
 
   //   // Get the token from the localStorage
   //   const storedToken = localStorage.getItem("authToken");
@@ -89,6 +99,21 @@ function SportDetailsPage(props) {
 
   return (
     <div>
+      <button
+        name="events"
+        className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+        onClick={(e) => handleOnClick(e.target.name)}
+      >
+        Event
+      </button>
+      <button
+        name="map"
+        className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
+        onClick={(e) => handleOnClick(e.target.name)}
+      >
+        Map
+      </button>
+
       {isLoading ? (
         <>
           <img className="loading" src={loader} alt="loading..." />
@@ -96,7 +121,21 @@ function SportDetailsPage(props) {
         </>
       ) : (
         <>
-          <img src={sport.venue.image} alt="event-img" />
+        {userClicked === "events" ? (
+          <img src={sport.venue.image} alt="" />
+        ) : (
+<Map 
+            venue={{
+              latitude: sport.venue.location.coordinates[0],
+              longitude: sport.venue.location.coordinates[1],
+              name: sport.venue.name,
+              address: sport.venue.location.type,
+              image: sport.venue.image,
+              id: sport._id,
+            }}
+          ></Map> 
+        )}
+             
 
           <h1 className="font-semibold text-2xl">{sport.sport}</h1>
           {sport.venue.location.type}
