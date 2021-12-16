@@ -23,7 +23,6 @@ export default function NewEvent() {
 
   const { user } = useContext(AuthContext);
 
-
   useEffect(() => {
     axios
       .get(`${API_URI}/api/venue`)
@@ -58,12 +57,14 @@ export default function NewEvent() {
   }
 
   return (
-    <div className="NewEventPage">
-      <h3>Add an event</h3>
-
-      <form onSubmit={handleSubmit}>
-      
+    <div className="CreateEvent">
+      <form
+        classname="flex flex-col items-center py-40"
+        onSubmit={handleSubmit}
+      >
+        <label className="items-start">Sport:</label>
         <select
+          className="bg-gray-300"
           name="sport"
           id="sport"
           form="sports_form"
@@ -81,17 +82,18 @@ export default function NewEvent() {
           <option value="Individual">Individual</option>
         </select>
 
-        <label>Attendees needed</label>
+        <label>Attendees needed:</label>
         <input
+          className="bg-gray-300"
           type="number"
           name="numberOfPlayers"
           onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
           value={formState.numberOfPlayers}
         />
-        <label>Sport</label>
 
-        <label htmlFor="venue">Venue</label>
+        <label htmlFor="venue">Venue:</label>
         <select
+          className="bg-gray-300"
           name="venue"
           id="venue"
           form="sports_form"
@@ -109,31 +111,39 @@ export default function NewEvent() {
             })}
         </select>
 
-        <label>Date</label>
+        <label>Date:</label>
         <input
+          className="bg-gray-300"
           type="date"
           name="date"
           onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
           value={formState.date}
         />
 
-        <label>Time</label>
+        <label>Time:</label>
         <input
+          className="bg-gray-300"
           type="time"
           name="time"
           onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
           value={formState.time}
         />
 
-        <label>Price</label>
+        <label>Price €:</label>
         <input
+          className="bg-gray-300"
           type="number"
           name="price"
           onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
           value={formState.price}
         />
 
-        <button type="submit">Create Event</button>
+        <button
+          type="submit"
+          className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
+        >
+          Create an event
+        </button>
       </form>
     </div>
   );
