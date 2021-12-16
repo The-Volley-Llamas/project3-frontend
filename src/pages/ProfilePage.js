@@ -59,7 +59,10 @@ function ProfilePage(props) {
   console.log("user game venue", userGamesList);
   return (
     <div>
-      <button className="font-semibold underline text-xl" onClick={handleOnClick}>
+      <button
+        className="font-semibold underline text-xl"
+        onClick={handleOnClick}
+      >
         My Games
       </button>
       <button
