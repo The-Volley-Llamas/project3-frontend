@@ -51,19 +51,19 @@ function ProfilePage(props) {
   }
   return (
     <div>
-    <div className="ProfileButtons">
-      <button
-        className="font-semibold underline text-2xl"
-        onClick={handleOnClick}
-      >
-        My Games
-      </button>
-      <button
-        className="font-semibold underline text-2xl"
-        onClick={(handleOnClick, logOutUser)}
-      >
-        Log out
-      </button>
+      <div className="ProfileButtons">
+        <button
+          className="font-semibold underline text-2xl"
+          onClick={handleOnClick}
+        >
+          My Games
+        </button>
+        <button
+          className="font-semibold underline text-2xl"
+          onClick={(handleOnClick, logOutUser)}
+        >
+          Log out
+        </button>
       </div>
 
       <>
@@ -71,7 +71,6 @@ function ProfilePage(props) {
           return (
             <div className="border-top border-black-900">
               <Link to={`sports/${event._id}`}>
-            
                 <ul>
                   <p className="text-xl font-semibold border-2 p-2">
                     {event.sport}
@@ -82,11 +81,11 @@ function ProfilePage(props) {
                     Attendees: {event.players.length}/{event.numberOfPlayers}
                   </p>
                   <p>
-                    {event.players.map((player) => {
-                      return (
-                        <>
-                          <div className="flex flex-row justify-center">
-                            <div className="flex-row">
+                    <div className="flex flex-wrap justify-around w-10/12 mx-auto">
+                      {event.players.map((player) => {
+                        return (
+                          <>
+                            <div className="flex flex-col items-center w-24 my-2">
                               <p className="justify-center">{player.name}</p>
                               <img
                                 className="rounded-full w-10 h-10"
@@ -94,10 +93,10 @@ function ProfilePage(props) {
                                 alt="profile-img"
                               />
                             </div>
-                          </div>
-                        </>
-                      );
-                    })}
+                          </>
+                        );
+                      })}
+                    </div>
                   </p>
                   <p> {event.venue.name}</p>
 

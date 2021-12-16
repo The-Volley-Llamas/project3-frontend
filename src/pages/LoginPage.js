@@ -36,39 +36,43 @@ function LoginPage(props) {
 
   return (
     <div className="LoginPage">
-      
-        <form className="flex flex-col items-center  py-40" onSubmit={handleLoginSubmit}>
-          <label className="items-start">Email:</label>
-          <input
-            className="bg-gray-300"
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
+      <form
+        className="flex flex-col items-center pt-40 pb-10"
+        onSubmit={handleLoginSubmit}
+      >
+        <label className="items-start">Email:</label>
+        <input
+          className="bg-gray-300"
+          type="text"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+        />
 
-          <label>Password:</label>
-          <input
-            className="bg-gray-300"
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
-          <br />
-          <button
-            className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
-            type="submit"
-          >
-            Login
-          </button>
-        </form>
-     
+        <label>Password:</label>
+        <input
+          className="bg-gray-300"
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
+        <br />
+        <button
+          className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Haven't got an account?</p>
-      <Link className="font-semibold underline" to={"/signup"}> Sign Up</Link>
-  
+      <Link className="font-semibold underline" to={"/signup"}>
+        {" "}
+        Sign Up
+      </Link>
     </div>
   );
 }

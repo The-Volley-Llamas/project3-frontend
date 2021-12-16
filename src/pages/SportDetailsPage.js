@@ -5,8 +5,7 @@ import loader from "../running-man.gif";
 import { AuthContext } from "./../context/auth.context";
 import Confirmation from "../components/Confirmation";
 import { useHistory } from "react-router";
-import Map from "../components/Map"
-
+import Map from "../components/Map";
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -17,7 +16,7 @@ function SportDetailsPage(props) {
   const { user, isLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
   const [joined, setJoined] = useState(false);
-  const [userClicked, setUserClicked] =useState("events")
+  const [userClicked, setUserClicked] = useState("events");
   //const [removed, setRemoved] = useState(false);
   const history = useHistory();
 
@@ -121,21 +120,20 @@ function SportDetailsPage(props) {
         </>
       ) : (
         <>
-        {userClicked === "events" ? (
-          <img src={sport.venue.image} alt="" />
-        ) : (
-<Map 
-            venue={{
-              latitude: sport.venue.location.coordinates[0],
-              longitude: sport.venue.location.coordinates[1],
-              name: sport.venue.name,
-              address: sport.venue.location.type,
-              image: sport.venue.image,
-              id: sport._id,
-            }}
-          ></Map> 
-        )}
-             
+          {userClicked === "events" ? (
+            <img src={sport.venue.image} alt="" />
+          ) : (
+            <Map
+              venue={{
+                latitude: sport.venue.location.coordinates[0],
+                longitude: sport.venue.location.coordinates[1],
+                name: sport.venue.name,
+                address: sport.venue.location.type,
+                image: sport.venue.image,
+                id: sport._id,
+              }}
+            ></Map>
+          )}
 
           <h1 className="font-semibold text-2xl">{sport.sport}</h1>
           {sport.venue.location.type}
@@ -145,24 +143,25 @@ function SportDetailsPage(props) {
           <p>
             Attendees {sport.players.length}/{sport.numberOfPlayers}
           </p>
-          <div>
+          <div className="flex flex-wrap justify-around w-10/12 mx-auto">
             {sport.players.map((player) => (
               <>
-                <ul>
-                  <li>
-                    {" "}
-                     <span>{player.name}</span>
-                    <span>
+                <div className="flex flex-col items-center w-24 my-2">
+                  <ul>
+                    <li className="items-center">
                       {" "}
-                      <img
-                        className="w-10 rounded-full"
-                        src={player.profileImage}
-                        alt="manimg"
-                      />
-                    </span>
-                   
-                  </li>
-                </ul>
+                      <span>{player.name}</span>
+                      <span>
+                        {" "}
+                        <img
+                          className="w-10 rounded-full"
+                          src={player.profileImage}
+                          alt="manimg"
+                        />
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </>
             ))}
           </div>
