@@ -79,11 +79,11 @@ function ProfilePage(props) {
                         <>
                           <div className="flex flex-row justify-center">
                             <div className="flex-row">
-                              <p>{player.name}</p>
+                              <p className="justify-center">{player.name}</p>
                               <img
                                 className="rounded-full w-10 h-10"
                                 src={player.profileImage}
-                                alt=""
+                                alt="profile-img"
                               />
                             </div>
                           </div>
