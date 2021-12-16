@@ -70,8 +70,8 @@ function ProfilePage(props) {
           return (
             <div className="border border-black-900">
               <Link to={`sports/${event._id}`}>
+                  <h2>{event.sport}</h2>
                 <ul>
-                  <p>{event.sport}</p>
                   <p>
                     Attendees: {event.players.length}/{event.numberOfPlayers}
                   </p>

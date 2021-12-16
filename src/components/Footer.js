@@ -39,7 +39,7 @@ function Footer() {
           <Link to="/signup">
           <button>
             <img className="mb-1 mt-1" src="/assets/+.png" alt="plus-sign" />
-            <div className="text-white">Signup</div>
+            <div className="text-white">Sign up</div>
           </button>
         </Link>
         <Link to="/login">
