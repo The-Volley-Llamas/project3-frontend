@@ -36,7 +36,7 @@ function LoginPage(props) {
 
   return (
     <div className="LoginPage">
-      <div className="">
+      
         <form className="flex flex-col items-center  py-40" onSubmit={handleLoginSubmit}>
           <label className="items-start">Email:</label>
           <input
@@ -68,7 +68,7 @@ function LoginPage(props) {
 
       <p>Haven't got an account?</p>
       <Link className="font-semibold underline" to={"/signup"}> Sign Up</Link>
-    </div>
+  
     </div>
   );
 }
