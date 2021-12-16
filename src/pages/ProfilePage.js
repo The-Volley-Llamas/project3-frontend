@@ -53,21 +53,13 @@ function ProfilePage(props) {
     <div>
       <div className="ProfileButtons">
         <button
-<<<<<<< HEAD
-          className="font-semibold underline text-2xl"
-=======
           className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
->>>>>>> 0a0b8b8e1323ca5d437bdf876642eb2b3d3dd611
           onClick={handleOnClick}
         >
           My Games
         </button>
         <button
-<<<<<<< HEAD
-          className="font-semibold underline text-2xl"
-=======
           className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5"
->>>>>>> 0a0b8b8e1323ca5d437bdf876642eb2b3d3dd611
           onClick={(handleOnClick, logOutUser)}
         >
           Log out
