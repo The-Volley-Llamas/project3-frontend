@@ -58,92 +58,91 @@ export default function NewEvent() {
 
   return (
     <div className="CreateEvent">
-      <form
-        classname="flex flex-col items-center py-40"
-        onSubmit={handleSubmit}
-      >
-        <label className="items-start">Sport:</label>
-        <select
-          className="bg-gray-300"
-          name="sport"
-          id="sport"
-          form="sports_form"
-          onChange={handleInput}
-          value={formState.sport}
-        >
-          <option value="Football">Football</option>
-          <option value="Beach-Volleyball">Beach Volleyball</option>
-          <option value="Basketball">Basketball</option>
-          <option value="Tennis">Tennis</option>
-          <option value="Table-Tennis">Table-Tennis</option>
-          <option value="Padel">Padel</option>
-          <option value="Yoga">Yoga</option>
-          <option value="Accessible">Accessible</option>
-          <option value="Individual">Individual</option>
-        </select>
+      <form classname="flex flex-col justify-center " onSubmit={handleSubmit}>
+        <div className="flex flex-col items-center  py-20 addForm">
+          <label className="items-start">Sport:</label>
+          <select
+            className="bg-gray-300"
+            name="sport"
+            id="sport"
+            form="sports_form"
+            onChange={handleInput}
+            value={formState.sport}
+          >
+            <option value="Football">Football</option>
+            <option value="Beach-Volleyball">Beach Volleyball</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Table-Tennis">Table-Tennis</option>
+            <option value="Padel">Padel</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Accessible">Accessible</option>
+            <option value="Individual">Individual</option>
+          </select>
 
-        <label>Attendees needed:</label>
-        <input
-          className="bg-gray-300"
-          type="number"
-          name="numberOfPlayers"
-          onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
-          value={formState.numberOfPlayers}
-        />
+          <label>Attendees needed:</label>
+          <input
+            className="bg-gray-300"
+            type="number"
+            name="numberOfPlayers"
+            onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
+            value={formState.numberOfPlayers}
+          />
 
-        <label htmlFor="venue">Venue:</label>
-        <select
-          className="bg-gray-300"
-          name="venue"
-          id="venue"
-          form="sports_form"
-          onChange={handleInput}
-          value={formState.venue}
-        >
-          {venueList
-            .filter((venue) =>
-              venue.sport.some((sportName) =>
-                (sportName || "").includes(formState.sport)
+          <label htmlFor="venue">Venue:</label>
+          <select
+            className="bg-gray-300"
+            name="venue"
+            id="venue"
+            form="sports_form"
+            onChange={handleInput}
+            value={formState.venue}
+          >
+            {venueList
+              .filter((venue) =>
+                venue.sport.some((sportName) =>
+                  (sportName || "").includes(formState.sport)
+                )
               )
-            )
-            .map((venue) => {
-              return <option value={venue._id}>{venue.name}</option>;
-            })}
-        </select>
+              .map((venue) => {
+                return <option value={venue._id}>{venue.name}</option>;
+              })}
+          </select>
 
-        <label>Date:</label>
-        <input
-          className="bg-gray-300"
-          type="date"
-          name="date"
-          onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
-          value={formState.date}
-        />
+          <label>Date:</label>
+          <input
+            className="bg-gray-300"
+            type="date"
+            name="date"
+            onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
+            value={formState.date}
+          />
 
-        <label>Time:</label>
-        <input
-          className="bg-gray-300"
-          type="time"
-          name="time"
-          onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
-          value={formState.time}
-        />
+          <label>Time:</label>
+          <input
+            className="bg-gray-300"
+            type="time"
+            name="time"
+            onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
+            value={formState.time}
+          />
 
-        <label>Price €:</label>
-        <input
-          className="bg-gray-300"
-          type="number"
-          name="price"
-          onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
-          value={formState.price}
-        />
+          <label>Price €:</label>
+          <input
+            className="bg-gray-300"
+            type="number"
+            name="price"
+            onChange={handleInput} // onChange={(e) => setPrice(e.target.value)}
+            value={formState.price}
+          />
 
-        <button
-          type="submit"
-          className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
-        >
-          Create an event
-        </button>
+          <button
+            type="submit"
+            className="shadow-lg mt-4 bg-gray-400 rounded-2xl"
+          >
+            Create an event
+          </button>
+        </div>
       </form>
     </div>
   );
