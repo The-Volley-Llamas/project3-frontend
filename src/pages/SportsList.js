@@ -87,7 +87,7 @@ function SportsListPage() {
 
                       <div>
                         <Link to={`sports/${sport._id}`}>
-                          <button className="shadow-lg  bg-gray-400 rounded-2xl">
+                          <button className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg">
                             Details
                           </button>
                         </Link>
