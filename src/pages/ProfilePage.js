@@ -77,7 +77,7 @@ function ProfilePage(props) {
               <Link to={`sports/${event._id}`}>
                 <ul>
                   <p className="text-xl font-semibold border-2 p-2">
-                    {event.sport}
+                    {event.sport} -{event.venue.location.barrio}
                   </p>
                   <br />
 
