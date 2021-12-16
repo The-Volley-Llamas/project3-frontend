@@ -15,7 +15,7 @@ function SportDetailsPage(props) {
   const { user, isLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
   const [joined, setJoined] = useState(false);
-  const [removed, setRemoved] = useState(false);
+  //const [removed, setRemoved] = useState(false);
 
   const history = useHistory()
 
@@ -53,7 +53,7 @@ function SportDetailsPage(props) {
       .catch(console.log);
   }
 
-  function deletedEvent() {
+  /*function deletedEvent() {
     const localJWTToken = localStorage.getItem("authToken");
 
     axios
@@ -68,7 +68,7 @@ function SportDetailsPage(props) {
         setRemoved(true);
       })
       .catch(console.log);
-  }
+  }*/
 
   return (
     <div className="SportDetails">

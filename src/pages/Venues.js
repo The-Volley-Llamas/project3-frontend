@@ -19,7 +19,7 @@ export default function Venues() {
          setIsLoading(false)
       })
       .catch(console.log);
-  }, []);
+  },);
 
   return (
     <div>

@@ -1,6 +1,5 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage";
 import EditProjectPage from "./pages/EditProjectPage";
@@ -8,7 +7,6 @@ import SportsListPage from "./pages/SportsList";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import SportDetailsPage from "./pages/SportDetailsPage"
-import mapboxgl from "mapbox-gl";
 import NewEvent from "./pages/newEvent";
 import PrivateRoute from "./components/PrivateRoute";    // <== IMPORT
 import AnonRoute from "./components/AnonRoute";        // <== IMPORT

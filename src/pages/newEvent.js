@@ -48,8 +48,7 @@ export default function NewEvent() {
         }
       )
       .then((respnse) => {
-        // setFormState({});
-        history.push("/");
+        history.push("/home");
       })
       .catch(console.log);
   }
