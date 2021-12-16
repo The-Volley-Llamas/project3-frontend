@@ -17,7 +17,7 @@ function SportDetailsPage(props) {
   const [joined, setJoined] = useState(false);
   //const [removed, setRemoved] = useState(false);
 
-  const history = useHistory()
+  const history = useHistory();
 
   //   // Get the token from the localStorage
   //   const storedToken = localStorage.getItem("authToken");
@@ -34,7 +34,6 @@ function SportDetailsPage(props) {
   }, [joined]);
 
   function handleSubmit() {
-    
     if (!isLoggedIn) return history.push("/login");
     const localJWTToken = localStorage.getItem("authToken");
 
@@ -53,6 +52,24 @@ function SportDetailsPage(props) {
       .catch(console.log);
   }
 
+  function handleLeave() {
+    if (!isLoggedIn) return history.push("/login");
+    const localJWTToken = localStorage.getItem("authToken");
+
+    axios
+      .put(
+        `${API_URI}/api/remove/${sportId}/${user._id}`,
+        { user },
+        {
+          headers: { Authorization: `Bearer ${localJWTToken}` },
+        }
+      )
+      .then((response) => {
+        setMessage(response.data);
+        setJoined(false);
+      })
+      .catch(console.log);
+  }
   /*function deletedEvent() {
     const localJWTToken = localStorage.getItem("authToken");
 
@@ -74,17 +91,12 @@ function SportDetailsPage(props) {
     <div>
       {isLoading ? (
         <>
-          <img
-            className="loading"
-            src={loader}
-            alt="loading..."
-         
-          />
+          <img className="loading" src={loader} alt="loading..." />
           <p>Loading...</p>
         </>
       ) : (
         <>
-          <img src={sport.venue.image} alt="not found" />
+          <img src={sport.venue.image} alt="" />
 
           <h1>
             {sport.sport}, {sport.venue.location.type}
@@ -96,18 +108,27 @@ function SportDetailsPage(props) {
           <div>
             {sport.players.map((player) => (
               <>
-              <ul>
-                <li>{player.name}</li>
-              
-              </ul>
-              <img src={player.profileImage} alt=""/>
+                <ul>
+                  <li>
+                    {" "}
+                    <span>
+                      {" "}
+                      <img
+                        src={player.profileImage}
+                        alt=""
+                        className="players"
+                      />
+                    </span>
+                    <span>{player.name}</span>
+                  </li>
+                </ul>
               </>
             ))}
           </div>
           <p>Time: {sport.time}</p>
           <p> {sport.price}€</p>
 
-          {message === "" ? (
+          {!joined ? (
             <button
               className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
               onClick={handleSubmit}
@@ -115,7 +136,15 @@ function SportDetailsPage(props) {
               Join
             </button>
           ) : (
+            <>
             <Confirmation message={[message]}></Confirmation>
+            <button
+              className="w-20 mt-5 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md shadow-lg"
+              onClick={handleLeave}
+            >
+              Leave
+            </button>
+            </>
           )}
         </>
       )}
