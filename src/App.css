@@ -52,3 +52,7 @@
 .ProfileButtons {
   text-decoration: dotted;
 }
+
+.LoginPage {
+  height: 50vh;
+}
