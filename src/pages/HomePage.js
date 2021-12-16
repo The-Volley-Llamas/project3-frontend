@@ -14,7 +14,7 @@ function HomePage() {
   ];
 
   return (
-    <>
+    <div className="Homepage">
       <div className="flex flex-col justify-center ">
         <div className="flex justify-center mt-10 mb-2">
           <svg
@@ -395,7 +395,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -39,14 +39,14 @@ const handleOnClick = (name) => {
   }, [sport]);
 
   return (
-    <div className="SportsListPage">
+    <div>
     <button name="events" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e) =>handleOnClick(e.target.name)}>Events</button>
     <button name="map" className="bg-transparent text-black-300 font-semibold hover:text-black py-2 px-4 border border-black-900 shadow-lg mb-5" onClick={(e)=> handleOnClick(e.target.name)}>Map</button>
     
 
       {isLoading ? (
         <>
-          <img className="loading" src={loader} alt="loading..." width="130" height="130" />
+          <img className="loading" src={loader} alt="loading..."  />
           <p>Loading...</p>
         </>
       ) : (
