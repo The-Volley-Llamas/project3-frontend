@@ -1,5 +1,3 @@
-readme.md
-
 # Sportbuddy
 
 ## Description
