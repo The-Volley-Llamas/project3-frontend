@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+readme.md
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sportbuddy
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+In the mood for a game of football? ⚽️ Ready to dust off your hiking boots? 🌳 Always struggle to find the perfect tennis partner? 🎾[Sportbuddy helps you search for the upcoming events, matches, and court availabilities to suit your desires. [INSERT APP NAME] allows you to search via a specific location, date or just simply see what’s the next upcoming available slot for you to join in!
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Stories
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* 404: As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+* Homepage: As a user I want to be able to see the homepage so I can see what the app is about
+* Signup: As an anon I can sign up in the platform so that I can start playing attending events
+* Login: As a user I can login to the platform so that I can play my chosen sport/s
+* Logout: As a user I can logout from the platform so that no one else can use it
+* Add Event As a user I can add an event to host
+* Edit Event As a user I can edit an event
+* View Events As a user I want to see a list of all upcoming events/slots I can join
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backlog
 
-### `yarn build`
+List of other features outside of the MVPs scope:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Google Oauth
+- Messaging feature
+- Credits/Payment system
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ROUTES: (UPDATE THIS GREEEEEEEEG)
 
-### `yarn eject`
+- GET /
+  - renders the homepage, where user can choose to search by location or event
+- GET /auth/signup
+  - redirects to / if user logged in
+  - renders the signup form (with flash msg)
+- POST /auth/signup
+  - redirects to / if user logged in
+  - body:
+    - username
+    - email
+    - password
+- GET /auth/login
+  - redirects to / if user logged in
+  - renders the login form (with flash msg)
+- POST /auth/login
+  - redirects to / if user logged in
+  - body:
+    - username
+    - password
+- POST /auth/logout
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - body: (empty)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- GET /events
+  - renders the events list + attend function
+- POST /event/create-listing
+  - redirects to / if user is anonymous
+  - body:
+    - event name
+    - rating/review
+- GET /event/:id
+  - renders the event detail page
+  - includes the list of events, location, price points, attendees
+  - add to favourites button & leave rating/create review button
+- GET /location/:id/
+  - renders the location detail page
+  - add to favourites button & leave rating/create review button
+  
+  - redirects to / if user is anonymous
+  - body: (empty - the user is already stored in the session)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Models
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+User model
+{
+name: String,
+email: String,
+password: String,
+profileImage: String,
+}
 
-## Learn More
+Event model
+{
+sport: String,
+location: String,
+user: String,
+numberOfPlayers: Number,
+time: Number,
+price: Number,
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Venue model
+{
+event: String,
+location: String,
+rating: Number,
+type: String,
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+## Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Project planning
 
-### Analyzing the Bundle Size
+[Link to our GitHub project board](https://github.com/orgs/The-Volley-Llamas/projects/1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Git
 
-### Making a Progressive Web App
+The url to your repository and to your deployed project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[Repository Link](https://github.com/The-Volley-Llamas)
 
-### Advanced Configuration
+[Deploy Link] (https://sport--buddy.herokuapp.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Slides
 
-### Deployment
+The url to your presentation slides
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Slides Link](https://www.canva.com/design/DAEyn6Wng00/t9C8nX5XeFzYnJSrTDGgCA/view?utm_content=DAEyn6Wng00&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-### `yarn build` fails to minify
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
