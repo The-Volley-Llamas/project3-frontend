@@ -77,25 +77,34 @@ User model
 name: String,
 email: String,
 password: String,
-profileImage: String,
+profileImage: String,,
+event: { type: Schema.Types.ObjectId, ref: "Event" }
 }
 
 Event model
 {
-sport: String,
-location: String,
-user: String,
-numberOfPlayers: Number,
-time: Number,
-price: Number,
+ sport: String,
+ numberOfPlayers: Number,
+ players: [{ type: Schema.Types.ObjectId, ref: "User"}],
+ venue: { type: Schema.Types.ObjectId, ref: "Venue"},
+ date: String,
+ time: String,
+ price: Number,
 }
 
 Venue model
 {
-event: String,
-location: String,
-rating: Number,
-type: String,
+ name: String,
+  description: String,
+
+  location: {type: {type: String, default: "Point"}, coordinates: Array},
+  rating: Number,
+  image: {
+    type: String,
+    default:
+      "https://deportesurbanos.com/wp-content/uploads/2020/05/pista-multideportiva-antivandalica.jpg",
+      }
+  
 
 ```
 
