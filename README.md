@@ -2,7 +2,7 @@
 
 ## Description
 
-In the mood for a game of football? ⚽️ Ready to dust off your hiking boots? 🌳 Always struggle to find the perfect tennis partner? 🎾[Sportbuddy helps you search for the upcoming events, matches, and court availabilities to suit your desires. [INSERT APP NAME] allows you to search via a specific location, date or just simply see what’s the next upcoming available slot for you to join in!
+In the mood for a game of football? ⚽️ Ready to dust off your hiking boots? 🌳 Always struggle to find the perfect tennis partner? 🎾 Sportbuddy helps you search for the upcoming events, matches, and court availabilities to suit your desires. Sport Buddy allows you to search via a specific location, date or just simply see what’s the next upcoming available slot for you to join in!
 
 
 ## User Stories
