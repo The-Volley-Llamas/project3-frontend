@@ -26,7 +26,7 @@ List of other features outside of the MVPs scope:
 - Credits/Payment system
 
 
-## ROUTES: (UPDATE THIS GREEEEEEEEG)
+## ROUTES:
 
 - GET /
   - renders the homepage, where user can choose to search by location or event
